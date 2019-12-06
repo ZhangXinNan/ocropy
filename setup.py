@@ -2,13 +2,13 @@
 
 from __future__ import print_function
 
-import sys,time,urllib,traceback,glob,os,os.path
+import sys
+import glob
+import os.path
+from distutils.core import setup
 
 assert sys.version_info[0]==2 and sys.version_info[1]>=7,\
     "you must install and use OCRopus with Python version 2.7 or later, but not Python 3.x"
-
-from distutils.core import setup #, Extension, Command
-#from distutils.command.install_data import install_data
 
 if not os.path.exists("models/en-default.pyrnn.gz"):
     print()
@@ -24,7 +24,7 @@ scripts = [c for c in glob.glob("ocropus-*") if "." not in c and "~" not in c]
 
 setup(
     name = 'ocropy',
-    version = 'v1.0',
+    version = 'v1.3.3',
     author = "Thomas Breuel",
     description = "The OCRopy RNN-based Text Line Recognizer",
     packages = ["ocrolib"],
